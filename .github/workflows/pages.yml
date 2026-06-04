@@ -25,10 +25,11 @@ jobs:
           node-version: 22
       - run: node tools/apply-copy.mjs
       - run: node tools/check-site.mjs
+      - run: node tools/build-pages.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     environment:

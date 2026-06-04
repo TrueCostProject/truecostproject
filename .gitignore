@@ -1,6 +1,7 @@
 proof/
 .local/
 node_modules/
+_site/
 .env
 .env.*
 !.env.example
