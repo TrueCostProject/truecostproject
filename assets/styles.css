@@ -1464,7 +1464,7 @@ blockquote {
 
 @media (min-width: 820px) {
   .visual-banner {
-    min-height: clamp(220px, 29.333vw, 640px);
+    min-height: clamp(420px, 30vw, 640px);
   }
 
   .menu-toggle {
