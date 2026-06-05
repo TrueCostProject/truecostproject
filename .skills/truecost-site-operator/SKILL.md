@@ -11,13 +11,14 @@ Use this skill for all work in this repository.
 
 After reading `CONTRACT.md`, do this before normal site work:
 
-1. Confirm the agent platform has a connected GitHub account.
-2. If not connected, initiate the platform GitHub connector or auth flow and ask the user to approve it.
-3. Confirm that account can push to this repo. Prefer connector permission checks or a non-mutating push/access check.
-4. If push access is missing, stop. Open the relevant GitHub access screen when possible, or tell the user the repo owner needs to grant write access. Ask them to reprompt after access is granted.
-5. Confirm Node is available. Use `node` on PATH when present; otherwise use or install a minimal portable Node runtime under `.local/`.
-6. Launch the editor and open `http://127.0.0.1:8787/index.html?dev=1` in the side browser.
-7. Then give the no-code intro.
+1. Pull the latest `main` from `origin` before making changes. Use a fast-forward pull when possible; if local or remote work blocks a clean pull, resolve that before editing.
+2. Confirm the agent platform has a connected GitHub account.
+3. If not connected, initiate the platform GitHub connector or auth flow and ask the user to approve it.
+4. Confirm that account can push to this repo. Prefer connector permission checks or a non-mutating push/access check.
+5. If push access is missing, stop. Open the relevant GitHub access screen when possible, or tell the user the repo owner needs to grant write access. Ask them to reprompt after access is granted.
+6. Confirm Node is available. Use `node` on PATH when present; otherwise use or install a minimal portable Node runtime under `.local/`.
+7. Launch the editor and open `http://127.0.0.1:8787/index.html?dev=1` in the side browser.
+8. Then give the no-code intro.
 
 Do not provide running commentary while these checks are happening. Speak only when the user must sign in, request access, make a choice, or when the editor is ready.
 
@@ -134,3 +135,13 @@ node tools/check-site.mjs
 ```
 
 Also verify in a browser when layout, navigation, editor behavior, footer, floating Donate, hero, mobile menu, or page structure changed.
+
+## Publish Finish
+
+When the user asks to publish, push, or save site work to GitHub:
+
+1. Pull latest `main` before making the final commit if the session has been open long enough for remote changes to land.
+2. Run the acceptance checks.
+3. Commit the intended changes.
+4. Push `main` to `origin`.
+5. Manually trigger the `Build Pages` workflow after pushing, then verify the workflow run succeeds.
