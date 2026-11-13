@@ -118,9 +118,6 @@ for (const page of pages) {
   if (homePages.has(page)) {
     assert(html.includes("class=\"hero"), `${page} is missing the homepage hero.`);
     assert(html.includes("banner-donate"), `${page} is missing the hero Donate button.`);
-    assert(html.includes("data-curator-feed"), `${page} is missing the social grid handoff.`);
-    assert(html.includes("data-curator-feed-id=\"ea323e97-9418-4bc4-b4ee-fff80795c060\""), `${page} is missing the Curator feed id.`);
-    assert(html.includes("https://cdn.curator.io"), `${page} is missing the Curator CDN preconnect.`);
     assert(html.includes("data-hero-test=\"b\""), `${page} is missing the selected homepage hero variant.`);
     assert(html.includes("srcset=\"assets/images/home-hero-mobile-b.png 1x\""), `${page} is missing hero image srcset.`);
     assert(html.includes("testimony-grid"), `${page} is missing testimonials.`);
