@@ -1754,3 +1754,28 @@ body[data-page="petco"] .section-heading p {
   text-align: center;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
+
+.city-actions {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  max-width: 46rem;
+}
+
+.city-actions li {
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.city-actions strong {
+  font-size: 1.1rem;
+}
+
+.city-actions a {
+  text-decoration: underline;
+}

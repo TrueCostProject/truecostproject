@@ -673,3 +673,108 @@
     }
   }
 })();
+
+(function () {
+  // City actions: read approved rows from the published Google Sheet (Sheet2) and list upcoming ones.
+  // Columns: City, State, Date, Start, End, Meeting spot, What's happening, Contact name, Contact email or Instagram.
+  var list = document.querySelector("[data-actions-csv]");
+  if (!list || !window.fetch) { return; }
+
+  function parseCsv(text) {
+    var rows = [], row = [], field = "", quoted = false;
+    for (var i = 0; i < text.length; i += 1) {
+      var c = text[i];
+      if (quoted) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i += 1; }
+        else if (c === '"') { quoted = false; }
+        else { field += c; }
+      } else if (c === '"') { quoted = true; }
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") { i += 1; }
+        row.push(field); rows.push(row); row = []; field = "";
+      } else { field += c; }
+    }
+    if (field !== "" || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function toIsoDate(value) {
+    var v = (value || "").trim(), m;
+    if ((m = v.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) { return m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2); }
+    if ((m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/))) {
+      var y = m[3].length === 2 ? "20" + m[3] : m[3];
+      return y + "-" + ("0" + m[1]).slice(-2) + "-" + ("0" + m[2]).slice(-2);
+    }
+    var d = new Date(v);
+    return isNaN(d) ? "" : d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  }
+
+  function niceDate(iso) {
+    var p = iso.split("-");
+    var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  }
+
+  function niceTime(value) {
+    var v = (value || "").trim(), m = v.match(/^(\d{1,2}):(\d{2})(?::\d{2})?\s*([ap]\.?m\.?)?$/i);
+    if (!m) { return v; }
+    var h = Number(m[1]), min = m[2], ap = m[3] ? m[3].charAt(0).toUpperCase() : "";
+    if (!ap) { ap = h >= 12 ? "P" : "A"; h = h % 12 || 12; }
+    return h + (min === "00" ? "" : ":" + min) + " " + ap + "M";
+  }
+
+  function contactLink(value) {
+    var v = (value || "").trim();
+    if (!v) { return null; }
+    var a = document.createElement("a");
+    if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { a.href = "mailto:" + v; a.textContent = v; return a; }
+    var handle = v.replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/^@/, "").replace(/\/.*$/, "");
+    if (/^[A-Za-z0-9._]{1,30}$/.test(handle)) {
+      a.href = "https://www.instagram.com/" + handle + "/"; a.textContent = "@" + handle;
+      a.target = "_blank"; a.rel = "noopener"; return a;
+    }
+    return document.createTextNode(v);
+  }
+
+  var today;
+  try { today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date()); }
+  catch (error) { today = new Date().toISOString().slice(0, 10); }
+
+  fetch(list.getAttribute("data-actions-csv"), { cache: "no-store" })
+    .then(function (response) { if (!response.ok) { throw new Error("sheet"); } return response.text(); })
+    .then(function (text) {
+      var items = parseCsv(text).map(function (r) {
+        return { city: (r[0] || "").trim(), state: (r[1] || "").trim(), date: toIsoDate(r[2]), start: r[3], end: r[4],
+          spot: (r[5] || "").trim(), what: (r[6] || "").trim(), name: (r[7] || "").trim(), contact: r[8] };
+      }).filter(function (a) { return a.city && a.date && a.date >= today; });
+      items.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : a.city.localeCompare(b.city); });
+      if (!items.length) { return; }
+
+      items.forEach(function (a) {
+        var li = document.createElement("li");
+        var title = document.createElement("strong");
+        title.textContent = a.city + (a.state ? ", " + a.state : "");
+        li.appendChild(title);
+
+        var when = niceDate(a.date);
+        if ((a.start || "").trim()) { when += ", " + niceTime(a.start) + ((a.end || "").trim() ? " to " + niceTime(a.end) : ""); }
+        var line = document.createElement("span");
+        line.textContent = when + (a.what ? ". " + a.what : "") + ".";
+        li.appendChild(line);
+
+        if (a.spot) { var spot = document.createElement("span"); spot.textContent = "Meet at " + a.spot; li.appendChild(spot); }
+
+        var link = contactLink(a.contact);
+        if (a.name || link) {
+          var c = document.createElement("span");
+          c.appendChild(document.createTextNode("City organizer: " + (a.name || "")));
+          if (link) { c.appendChild(document.createTextNode(a.name ? ", " : "")); c.appendChild(link); }
+          li.appendChild(c);
+        }
+        list.appendChild(li);
+      });
+      list.hidden = false;
+    })
+    .catch(function () { /* Sheet unreachable: keep the static sign-up text. */ });
+})();
