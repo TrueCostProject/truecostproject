@@ -37,7 +37,7 @@ const requiredFiles = [
   "assets/icons/browserconfig.xml"
 ];
 const copyIdPattern = /^[a-z0-9][a-z0-9-]*(\/[a-z0-9][a-z0-9-]*)+$/;
-const donateUrl = "https://patreon.com/TrueCostProject";
+const donateUrl = "https://www.zeffy.com/en-US/donation-form/help-true-cost-project-save-the-dogs";
 const facebookUrl = "https://www.facebook.com/profile.php?id=61567428772270";
 const volunteerUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdItLGn1wnQm3ApwFnvKo05v48QzDq50IV4SlKLuaknGB5ijw/viewform";
 const tipUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfZku3W3lYjDypTkToon5VW0wiZErMpE2BNcIZPpksmq18pmA/viewform";

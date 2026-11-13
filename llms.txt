@@ -24,7 +24,7 @@ Current status: 501(c)(3) pending.
 - [Robots](https://truecostproject.org/robots.txt): Crawl permissions and sitemap reference.
 - [Instagram](https://www.instagram.com/truecostproject/): Public social profile.
 - [Facebook](https://www.facebook.com/profile.php?id=61567428772270): Public social profile.
-- [Donate](https://patreon.com/TrueCostProject): Patreon donation and membership page.
+- [Donate](https://www.zeffy.com/en-US/donation-form/help-true-cost-project-save-the-dogs): Zeffy donation page.
 
 ## Interpretation Notes
 
@@ -36,4 +36,5 @@ Current status: 501(c)(3) pending.
 
 - [Curator.io Privacy Policy](https://curator.io/privacy-policy): Privacy policy for the social feed embed provider.
 - [Instagram Privacy Policy](https://privacycenter.instagram.com/policy): Privacy policy for Instagram social content.
-- [Patreon Privacy Center](https://privacy.patreon.com/policies/en/): Privacy policy for possible donation or membership services.
+- [Zeffy Legal and Privacy](https://zeffy.hc.ferndesk.com/legal-dkkem): Privacy policy and terms for the donation platform.
+- [Patreon Privacy Center](https://privacy.patreon.com/policies/en/): Privacy policy for possible membership services.
