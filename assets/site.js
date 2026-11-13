@@ -701,6 +701,11 @@
 
   function toIsoDate(value) {
     var v = (value || "").trim(), m;
+    if (/^\d{5}(\.\d+)?$/.test(v)) {
+      // Google Sheets date serial (days since Dec 30, 1899).
+      var s = new Date(Date.UTC(1899, 11, 30) + Math.floor(Number(v)) * 86400000);
+      return s.getUTCFullYear() + "-" + ("0" + (s.getUTCMonth() + 1)).slice(-2) + "-" + ("0" + s.getUTCDate()).slice(-2);
+    }
     if ((m = v.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) { return m[1] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[3]).slice(-2); }
     if ((m = v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/))) {
       var y = m[3].length === 2 ? "20" + m[3] : m[3];
@@ -717,7 +722,13 @@
   }
 
   function niceTime(value) {
-    var v = (value || "").trim(), m = v.match(/^(\d{1,2}):(\d{2})(?::\d{2})?\s*([ap]\.?m\.?)?$/i);
+    var v = (value || "").trim();
+    if (/^0?\.\d+$|^0$/.test(v)) {
+      // Google Sheets time serial (fraction of a day).
+      var total = Math.round(Number(v) * 1440);
+      v = Math.floor(total / 60) + ":" + ("0" + (total % 60)).slice(-2);
+    }
+    var m = v.match(/^(\d{1,2}):(\d{2})(?::\d{2})?\s*([ap]\.?m\.?)?$/i);
     if (!m) { return v; }
     var h = Number(m[1]), min = m[2], ap = m[3] ? m[3].charAt(0).toUpperCase() : "";
     if (!ap) { ap = h >= 12 ? "P" : "A"; h = h % 12 || 12; }
