@@ -1671,3 +1671,51 @@ body[data-page="petco"] .section-heading p {
 #compact .button-row {
   margin-top: 2rem;
 }
+
+.video-band {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(56.25vw, 640px);
+  overflow: hidden;
+  background: var(--graphite) url("video/rally-wide.jpg") center / cover no-repeat;
+}
+
+.video-band-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-band::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(25, 23, 22, 0.5), rgba(25, 23, 22, 0.75));
+  content: "";
+}
+
+.video-band-copy {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.video-band-copy .button-row {
+  justify-content: center;
+}
+
+@media (max-width: 699px) {
+  .video-band {
+    min-height: 125vw;
+    background-image: url("video/rally-tall.jpg");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-band-media {
+    display: none;
+  }
+}
