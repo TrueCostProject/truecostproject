@@ -1719,3 +1719,38 @@ body[data-page="petco"] .section-heading p {
     display: none;
   }
 }
+
+.photo-band {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 80vh;
+  overflow: hidden;
+  clip-path: inset(0);
+}
+
+.photo-band-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--graphite) url("images/about-beagle.jpg") center 30% / cover no-repeat;
+}
+
+.photo-band::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(25, 23, 22, 0.15), rgba(25, 23, 22, 0.6));
+  content: "";
+}
+
+.photo-band-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  padding: 2rem clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
