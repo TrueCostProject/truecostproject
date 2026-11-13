@@ -10,6 +10,7 @@ const entries = [
   "CNAME",
   "about.html",
   "act.html",
+  "petco.html",
   "assets",
   "favicon.ico",
   "index.html",

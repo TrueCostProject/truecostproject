@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const homePages = new Set(["index.html"]);
-const pages = [...homePages, "about.html", "act.html", "privacy.html", "terms.html"];
+const pages = [...homePages, "about.html", "act.html", "petco.html", "privacy.html", "terms.html"];
 const copyRoot = path.join(root, "copy");
 const requiredFiles = [
   ...pages,

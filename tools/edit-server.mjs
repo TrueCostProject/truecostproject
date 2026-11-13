@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const copyRoot = path.join(root, "copy");
 const port = Number(process.env.PORT || process.env.TRUECOST_EDIT_PORT || 8787);
 const host = "127.0.0.1";
-const pages = ["index.html", "about.html", "act.html", "privacy.html", "terms.html"];
+const pages = ["index.html", "about.html", "act.html", "petco.html", "privacy.html", "terms.html"];
 const copyIdPattern = /^[a-z0-9][a-z0-9-]*(\/[a-z0-9][a-z0-9-]*)+$/;
 const safeCommitPaths = new Set(["copy", ...pages]);
 
