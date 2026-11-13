@@ -654,3 +654,22 @@
     window.setTimeout(requestDonateHandoff, 80);
   }
 })();
+
+(function () {
+  // Hide time-limited content (data-expires="YYYY-MM-DD") once that date arrives in Pacific time.
+  var items = document.querySelectorAll("[data-expires]");
+  if (!items.length) {
+    return;
+  }
+  var today;
+  try {
+    today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles" }).format(new Date());
+  } catch (error) {
+    today = new Date().toISOString().slice(0, 10);
+  }
+  for (var i = 0; i < items.length; i += 1) {
+    if (today >= items[i].getAttribute("data-expires")) {
+      items[i].hidden = true;
+    }
+  }
+})();
