@@ -11,6 +11,7 @@ const entries = [
   "about.html",
   "act.html",
   "petco.html",
+  "petition.html",
   "assets",
   "favicon.ico",
   "index.html",
