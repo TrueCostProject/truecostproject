@@ -15,6 +15,7 @@ Current status: 501(c)(3) nonprofit.
 - [Home](https://truecostproject.org/): Main mission statement, hero message, social feed handoff, testimonials, and donation call to action.
 - [About](https://truecostproject.org/about.html): Overview of how True Cost Project uses public records, spending trails, and institutional accountability.
 - [Act](https://truecostproject.org/act.html): Ways to help through volunteering, tips, donations, subscription, and public reach.
+- [Petco Petition](https://truecostproject.org/petition.html): Petition asking Petco to cut ties with Marshall BioResources.
 - [Petco Prove It](https://truecostproject.org/petco.html): Campaign asking Petco to cut ties with Marshall BioResources, with action guidelines, materials, signup and upcoming public actions.
 - [Privacy Policy](https://truecostproject.org/privacy.html): Privacy posture for the static site, social embeds, external forms, donations, and privacy tools.
 - [Terms of Use](https://truecostproject.org/terms.html): Minimal terms covering site use, public materials, third-party links, social embeds, and donation or form handoffs.
