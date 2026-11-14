@@ -1938,19 +1938,27 @@ body[data-page="petco"] .section-heading p {
   }
 }
 
-/* Petco hero on phones: show the whole video width so the beagle is never cropped */
+/* Petco hero on phones: show the whole video frame so both dogs are always visible */
 @media (max-width: 819.98px) {
-  .petco-hero {
+  .page-hero.petco-hero {
     background: var(--graphite);
   }
 
   .petco-hero-media {
     inset: auto 0 0 0;
     height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: 30% 50%;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
-    mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
+    aspect-ratio: 720 / 410;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 6%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 6%);
+  }
+
+  .banner-copy.petco-hero-copy {
+    padding-bottom: calc(100vw * 410 / 720 + 1.5rem);
+  }
+
+  .petco-hero::after {
+    background:
+      linear-gradient(180deg, rgba(25, 23, 22, 0.88) 0%, rgba(25, 23, 22, 0.7) 60%, rgba(25, 23, 22, 0.05) 100%);
   }
 }
