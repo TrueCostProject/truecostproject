@@ -758,7 +758,7 @@
       var items = parseCsv(text).map(function (r) {
         return { city: (r[0] || "").trim(), state: (r[1] || "").trim(), date: toIsoDate(r[2]), start: r[3], end: r[4],
           spot: (r[5] || "").trim(), what: (r[6] || "").trim(), name: (r[7] || "").trim(), contact: r[8] };
-      }).filter(function (a) { return a.city && a.date && a.date >= today; });
+      }).filter(function (a) { return a.city && a.date && a.date >= today && !(a.city.toLowerCase() === "mesa" && a.date === "2026-11-20"); });
       items.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : a.city.localeCompare(b.city); });
       if (!items.length) { return; }
 
