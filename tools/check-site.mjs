@@ -41,7 +41,7 @@ const donateUrl = "https://www.zeffy.com/en-US/donation-form/help-true-cost-proj
 const facebookUrl = "https://www.facebook.com/profile.php?id=61567428772270";
 const volunteerUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdItLGn1wnQm3ApwFnvKo05v48QzDq50IV4SlKLuaknGB5ijw/viewform";
 const tipUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfZku3W3lYjDypTkToon5VW0wiZErMpE2BNcIZPpksmq18pmA/viewform";
-const subscribeUrl = "https://forms.gle/38hdWnoYiEzeVhBeA";
+const subscribeUrl = "https://www.zeffy.com/en-US/newsletter-form/stay-in-the-loop-19";
 const problems = [];
 let checks = 0;
 
