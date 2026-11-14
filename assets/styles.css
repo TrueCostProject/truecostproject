@@ -1915,3 +1915,25 @@ body[data-page="petco"] .section-heading p {
     display: none;
   }
 }
+
+/* Petco hero: keep the beagle visible */
+@media (min-width: 820px) {
+  .petco-hero::after {
+    background:
+      linear-gradient(90deg, rgba(25, 23, 22, 0.82) 0%, rgba(25, 23, 22, 0.6) 45%, rgba(25, 23, 22, 0.15) 100%),
+      rgba(117, 27, 28, 0.12);
+  }
+}
+
+@media (max-width: 819.98px) {
+  .petco-hero::after {
+    background:
+      linear-gradient(180deg, rgba(25, 23, 22, 0.88) 0%, rgba(25, 23, 22, 0.78) 50%, rgba(25, 23, 22, 0.18) 100%),
+      rgba(117, 27, 28, 0.12);
+  }
+
+  .banner-copy.petco-hero-copy {
+    justify-content: flex-start;
+    padding-bottom: 46svh;
+  }
+}
