@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//True Cost Project//Petco Prove It//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:petco-prove-it-meeting-20261202@truecostproject.org
+DTSTAMP:20261114T000000Z
+DTSTART:20261203T013000Z
+DTEND:20261203T023000Z
+SUMMARY:Petco Prove It campaign meeting
+LOCATION:Signal (campaign group)
+DESCRIPTION:Petco Prove It campaign meeting. The call happens in the campaign Signal group. https://truecostproject.org/petco.html
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Petco Prove It campaign meeting in 1 hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR

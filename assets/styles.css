@@ -1821,3 +1821,9 @@ body[data-page="petco"] .section-heading p {
 .letter-template p:last-child {
   margin-bottom: 0;
 }
+
+.meeting-band .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
