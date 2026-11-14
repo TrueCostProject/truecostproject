@@ -1962,3 +1962,31 @@ body[data-page="petco"] .section-heading p {
       linear-gradient(180deg, rgba(25, 23, 22, 0.88) 0%, rgba(25, 23, 22, 0.7) 60%, rgba(25, 23, 22, 0.05) 100%);
   }
 }
+
+/* Petition share row */
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.share-row .share-label {
+  flex-basis: 100%;
+  font-weight: 800;
+}
+
+.share-row .button-secondary {
+  border: 2px solid var(--graphite);
+  background: transparent;
+  color: var(--graphite);
+  min-height: 0;
+  padding: 0.6rem 1rem;
+}
+
+.share-row .button-secondary:hover,
+.share-row .button-secondary:focus-visible {
+  background: var(--graphite);
+  color: var(--cream);
+}

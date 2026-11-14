@@ -130,6 +130,13 @@
             <a class="button button-primary" href="https://www.zeffy.com/en-US/newsletter-form/tell-petco-cut-ties-with-marshall-bioresources" target="_blank" rel="noopener" data-copy-id="petition/button">Sign the petition</a>
             <a class="button button-dark" href="https://www.zeffy.com/en-US/donation-form/help-true-cost-project-save-the-dogs" target="_blank" rel="noopener" data-copy-id="global/donate-label" data-donate-button>Donate</a>
           </div>
+          <div class="share-row" aria-label="Share this petition">
+            <span class="share-label">Share it with your friends:</span>
+            <a class="button button-secondary" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftruecostproject.org%2Fpetition" target="_blank" rel="noopener">Facebook</a>
+            <a class="button button-secondary" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ftruecostproject.org%2Fpetition&amp;text=Chewy%20and%20PetSmart%20cut%20ties%20with%20Marshall%20BioResources.%20Tell%20Petco%20to%20do%20the%20same." target="_blank" rel="noopener">X</a>
+            <button class="button button-secondary" type="button" data-native-share hidden>Text or other apps</button>
+            <button class="button button-secondary" type="button" data-copy-link="https://truecostproject.org/petition">Copy link</button>
+          </div>
           <p class="alt-donate"><span data-copy-id="petition/more">Want to do more than sign?</span> <a href="petco.html#get-involved">Join the Petco Prove It campaign</a></p>
         </div>
       </section>
@@ -167,5 +174,22 @@
     </footer>
 
     <a class="floating-donate" href="https://www.zeffy.com/en-US/donation-form/help-true-cost-project-save-the-dogs" target="_blank" rel="noopener" data-copy-id="global/donate-label" data-donate-button>Donate</a>
-  </body>
+  <script>
+document.querySelectorAll("[data-native-share]").forEach(function (b) {
+  if (!navigator.share) { return; }
+  b.hidden = false;
+  b.addEventListener("click", function () {
+    navigator.share({ title: "Tell Petco to cut ties with Marshall BioResources", text: "Chewy and PetSmart cut ties with Marshall BioResources. Sign the petition and tell Petco to do the same.", url: "https://truecostproject.org/petition" }).catch(function () {});
+  });
+});
+document.querySelectorAll("[data-copy-link]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var url = b.getAttribute("data-copy-link");
+    var done = function () { b.textContent = "Link copied"; };
+    if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, function () { window.prompt("Copy this link:", url); }); }
+    else { window.prompt("Copy this link:", url); }
+  });
+});
+</script>
+</body>
 </html>
