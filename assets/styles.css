@@ -1779,3 +1779,45 @@ body[data-page="petco"] .section-heading p {
 .city-actions a {
   text-decoration: underline;
 }
+
+.guidelines-doc .guidelines-block {
+  max-width: 62ch;
+  margin-top: 2.25rem;
+}
+
+.guidelines-doc h3 {
+  margin: 0 0 0.75rem;
+  color: var(--gold);
+  font-size: 1.35rem;
+}
+
+.guidelines-doc .guidelines-block > p {
+  margin: 0 0 0.85rem;
+  font-size: 1.08rem;
+}
+
+.guidelines-doc .guideline-list {
+  margin-bottom: 1rem;
+}
+
+.guidelines-doc .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.letter-template {
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.letter-template p {
+  margin: 0 0 0.85rem;
+}
+
+.letter-template p:last-child {
+  margin-bottom: 0;
+}
