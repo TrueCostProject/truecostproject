@@ -39,8 +39,8 @@ const requiredFiles = [
 const copyIdPattern = /^[a-z0-9][a-z0-9-]*(\/[a-z0-9][a-z0-9-]*)+$/;
 const donateUrl = "https://www.zeffy.com/en-US/donation-form/help-true-cost-project-save-the-dogs";
 const facebookUrl = "https://www.facebook.com/profile.php?id=61567428772270";
-const volunteerUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdItLGn1wnQm3ApwFnvKo05v48QzDq50IV4SlKLuaknGB5ijw/viewform";
-const tipUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfZku3W3lYjDypTkToon5VW0wiZErMpE2BNcIZPpksmq18pmA/viewform";
+const volunteerUrl = "https://tally.so/r/Kp5reD";
+const tipUrl = "https://tally.so/r/9N9AZE";
 const subscribeUrl = "https://www.zeffy.com/en-US/newsletter-form/stay-in-the-loop-19";
 const problems = [];
 let checks = 0;
