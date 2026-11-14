@@ -1947,8 +1947,9 @@ body[data-page="petco"] .section-heading p {
   .petco-hero-media {
     inset: auto 0 0 0;
     height: auto;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    object-position: 30% 50%;
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 22%);
   }
